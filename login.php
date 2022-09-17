@@ -14,7 +14,7 @@ session_start();
 
 		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 		{
-
+        
 			//read from database
 			$query = "select * from users where user_name = '$user_name' limit 1";
 			$result = mysqli_query($con, $query);
@@ -28,14 +28,14 @@ session_start();
 					
 					if($user_data['password'] === $password)
 					{
-
+                    
 						$_SESSION['user_id'] = $user_data['user_id'];
 						header("Location: index.php");
 						die;
 					}
 				}
 			}
-			
+
 			echo "wrong username or password!";
 		}else
 		{
@@ -87,12 +87,9 @@ session_start();
 		
 		<form method="post">
 			<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
-
 			<input id="text" type="text" name="user_name"><br><br>
 			<input id="text" type="password" name="password"><br><br>
-
 			<input id="button" type="submit" value="Login"><br><br>
-
 			<a href="signup.php">Click to Signup</a><br><br>
 		</form>
 	</div>
