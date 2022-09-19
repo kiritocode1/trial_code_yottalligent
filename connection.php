@@ -6,6 +6,15 @@ user_name = varchar(255)
 password = varchar(255)
 
 
+and 3 other tables states  , cities  , countries ,
+each with 3 attributes -> 
+
+cities(id [primary] , user_id [foreign], city_name)
+states(id [primary] , user_id [foreign], state_name)
+countries(id [primary] , user_id [foreign], country_name)
+
+
+thank you 
 
 
 */
