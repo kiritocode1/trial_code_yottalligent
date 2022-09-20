@@ -1,10 +1,11 @@
 <?php
-/* please make a SQL DB with name test_db and parameters -> 
+/* please make a SQL DB with name test_db and table users with params  
+(
 id = int  {Primary key , Auto Increment}
 user_id = int 
 user_name = varchar(255)
 password = varchar(255)
-
+);
 
 and 3 other tables states  , cities  , countries ,
 each with 3 attributes -> 
@@ -15,6 +16,7 @@ countries(id [primary] , user_id [foreign], country_name)
 
 
 thank you 
+
 
 
 */
