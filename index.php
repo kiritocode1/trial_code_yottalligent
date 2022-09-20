@@ -5,6 +5,15 @@ include("connection.php");
 include("functions.php");
 
 $user_data = check_login($con);
+$selected = "lol";
+if (isset($_POST['submit'])) {
+	if (!empty($_POST)) {
+		$selected = $_POST;
+	} else {
+		$selected  = "gg re";
+		die;
+	}
+}
 
 ?>
 
@@ -30,7 +39,7 @@ $user_data = check_login($con);
 			<tr>
 				<th scope="col">#</th>
 				<th scope="col">Name</th>
-				<th scope="col">button</th>
+				<th scope="col">Location</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,49 +47,50 @@ $user_data = check_login($con);
 			foreach ($user_data as $individual_index => $user) {
 				foreach ($user as $person_index => $name) {
 					echo "<tr><th scope='row'>$individual_index</th><td>$name</td><td class='btn btn-info w-full'>
-						<div class='btn-group'>
-  <button type='button' class='btn btn-danger dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-    state
-  </button>
-  <ul class='dropdown-menu'>
-    <li><a class='dropdown-item' href='#'>gujarat</a></li>
-    <li><a class='dropdown-item' href='#'>delhi</a></li>
-    <li><a class='dropdown-item' href='#'>Maharashtra</a></li>
+						
+	<form action='' method='post'>
+	City : 
+    <select name='$name city'>
+        <option value=' disabled selected>City</option>
+        <option value='Pune'>Pune</option>
+        <option value='Mumbai'>Mumbai</option>
+        <option value='Abu Dhabi'>Abu Dhabi</option>
+        <option value='Kansas'>Kansas</option>
+        <option value='Madras'>Madras</option>
+    </select>
+	State :
+	    <select name='$name state'>
+        <option value=' disabled selected>State</option>
+        <option value='Maharashtra'>Maharashtra</option>
+        <option value='Delhi'>Delhi</option>
+        <option value='Bengal'>Bengal</option>
+        <option value='Delhi'>Delhi</option>
+        <option value='Rajhasthan'>Rajhasthan</option>
+    </select>
+	Country : 
+		    <select name='$name country'>
+        <option value=' disabled selected>Country</option>
+        <option value='Dubai'>Dubai</option>
+        <option value='India'>India</option>
+        <option value='US'>US</option>
 
-  </ul>
-</div>
+    </select>
+    <input type='submit' name='$name submit' value='submit'>
+</form>
 
-
-<div class='btn-group'>
-  <button type='button' class='btn btn-danger dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-    city
-  </button>
-  <ul class='dropdown-menu'>
-    <li><a class='dropdown-item' href='#'>Mumbai</a></li>
-    <li><a class='dropdown-item' href='#'>Pune</a></li>
-    <li><a class='dropdown-item' href='#'>Goregaon</a></li>
-
-  </ul>
-</div>
-
-
-<div class='btn-group'>
-  <button type='button' class='btn btn-danger dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
-    Country
-  </button>
-  <ul class='dropdown-menu'>
-    <li><a class='dropdown-item' href='#'>India</a></li>
-    <li><a class='dropdown-item' href='#'>Dubai</a></li>
-    <li><a class='dropdown-item' href='#'>Canada</a></li>
-
-  </ul>
-</div>
 						</td></tr>";
 				}
 			}
 			?>
 		</tbody>
 	</table>
+
+
+
+
+	<h1><?php print_r($_POST); ?></h1>
+
+
 </body>
 
 </html>
